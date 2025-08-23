@@ -9,6 +9,7 @@ export default function ProjectsPage() {
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState<string | null>(null)
 
+  /* eslint @typescript-eslint/no-explicit-any: 0 */
   useEffect(() => {
     (async () => {
       setLoading(true)

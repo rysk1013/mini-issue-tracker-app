@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useParams, useSearchParams, Link } from 'react-router-dom'
 import { listIssues } from '@/services/issueService'
 import { Issue } from '@/utils/types'
+import Button from '@/components/Button'
 
 export default function IssuePage() {
   const { id } = useParams()
@@ -83,6 +84,9 @@ export default function IssuePage() {
           <option value="in_progress">In Progress</option>
           <option value="done">Done</option>
         </select>
+        <Button variant="secondary" onClick={() => setSp({ page: "1", q: "", status: ""})}>
+          Clear
+        </Button>
         <span className="text-sm text-gray-500 ml-auto">{ rangeLabel }</span>
       </div>
 

@@ -4,6 +4,7 @@ import { listIssues } from '@/services/issueService'
 import { Issue } from '@/utils/types'
 import Button from '@/components/Button'
 import Input from '@/components/Input'
+import Select from '@/components/Select'
 
 export default function IssuePage() {
   const { id } = useParams()
@@ -75,7 +76,7 @@ export default function IssuePage() {
           onChange={(e) => setSp({ page: "1", q: e.target.value, status })}
           className="border px-2 py-1 rounded"
         />
-        <select
+        <Select
           value={status}
           onChange={(e) => setSp({ page: "1", q, status: e.target.value })}
           className="border px-2 py-1 rounded"
@@ -84,7 +85,7 @@ export default function IssuePage() {
           <option value="backlog">Backlog</option>
           <option value="in_progress">In Progress</option>
           <option value="done">Done</option>
-        </select>
+        </Select>
         <Button variant="secondary" onClick={() => setSp({ page: "1", q: "", status: ""})}>
           Clear
         </Button>

@@ -3,6 +3,7 @@ import { useParams, useSearchParams, Link } from 'react-router-dom'
 import { listIssues } from '@/services/issueService'
 import { Issue } from '@/utils/types'
 import Button from '@/components/Button'
+import Input from '@/components/Input'
 
 export default function IssuePage() {
   const { id } = useParams()
@@ -68,7 +69,7 @@ export default function IssuePage() {
 
       {/* 検索・フィルタ */}
       <div className="flex gap-2 items-center">
-        <input
+        <Input
           placeholder="Search title or labels..."
           value={q}
           onChange={(e) => setSp({ page: "1", q: e.target.value, status })}

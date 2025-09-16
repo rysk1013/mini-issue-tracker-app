@@ -5,6 +5,7 @@ import { Issue } from '@/utils/types'
 import Button from '@/components/Button'
 import Input from '@/components/Input'
 import Select from '@/components/Select'
+import Badge from '@/components/Badge'
 
 export default function IssuePage() {
   const { id } = useParams()
@@ -113,7 +114,11 @@ export default function IssuePage() {
                     {i.title}
                   </Link>
                 </td>
-                <td className="p-2">{ i.status }</td>
+                <td className="p-2">
+                  {i.status === 'done' && <Badge color='green'>done</Badge>}
+                  {i.status === 'in_progress' && <Badge color='blue'>in_progress</Badge>}
+                  {i.status === 'backlog' && <Badge>backlog</Badge>}
+                </td>
                 <td className="p-2">{ i.priority }</td>
                 <td className="p-2">
                   <time dateTime={i.updatedAt}>
